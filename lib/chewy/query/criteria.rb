@@ -146,7 +146,7 @@ module Chewy
         query = body.delete :query
         filter = body.delete :filter
         if query && filter
-          query = {filtered: {query: query, filter: filter}}
+          query = {bool: {must: query, filter: filter}}
           filter = nil
         end
         score = {}
